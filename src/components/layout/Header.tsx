@@ -37,21 +37,19 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2.5"
+          className="flex items-center"
           onClick={() => setOpen(false)}
           aria-label="P27 Solver home"
         >
           <Image
-            src="/brand/p27-cube.png"
-            alt=""
-            width={40}
-            height={42}
-            className="h-8 w-auto object-contain sm:h-9"
+            src="/brand/p27-solver-mark-transparent.png?v=3"
+            alt="P27 Solver"
+            width={200}
+            height={60}
+            className="h-9 w-auto object-contain sm:h-10"
             priority
+            unoptimized
           />
-          <span className="text-sm font-semibold tracking-tight text-text sm:text-base">
-            P27 Solver
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">

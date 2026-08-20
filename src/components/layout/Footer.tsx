@@ -77,11 +77,12 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_2fr]">
           <div>
             <Image
-              src="/brand/p27-solver-mark.png"
+              src="/brand/p27-solver-mark-transparent.png?v=3"
               alt="P27 Solver"
               width={200}
-              height={48}
-              className="h-8 w-auto object-contain"
+              height={60}
+              className="h-9 w-auto object-contain"
+              unoptimized
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               Native Windows GTO solver. Lifetime license {LICENSE_PRICE} until{" "}
