@@ -42,7 +42,7 @@ export default function DownloadPage() {
               </p>
             </div>
             <Button href={LEMON_SQUEEZY_CHECKOUT_URL} className="sm:self-start">
-              Buy licence
+              Buy license
             </Button>
           </div>
 

@@ -5,6 +5,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Pricing } from "@/components/sections/Pricing";
+import { ProductVideo } from "@/components/sections/ProductVideo";
 import { Requirements } from "@/components/sections/Requirements";
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Hero />
       <Features />
       <HowItWorks />
+      <ProductVideo />
       <ComingSoon />
       <Pricing />
       <Requirements />

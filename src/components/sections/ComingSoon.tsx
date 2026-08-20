@@ -27,7 +27,7 @@ export function ComingSoon() {
                 P27 Solver continues to evolve.
               </h2>
               <p className="mt-4 text-base text-muted sm:text-lg">
-                Not in the shipping app. Licence coverage is noted per item.
+                Not in the shipping app. License coverage is noted per item.
               </p>
 
               <ul className="mx-auto mt-8 max-w-xl space-y-4 text-left">
@@ -48,7 +48,7 @@ export function ComingSoon() {
                 {PRICE_INTRO_LINE} The High-Speed Solver Engine is included for{" "}
                 {LICENSE_PRICE} buyers on or before {PRICE_UNTIL} upon release.
                 Tournament Mode and Exploitative Best-Response are not part of
-                the {LICENSE_PRICE} licence.
+                the {LICENSE_PRICE} license.
               </p>
             </div>
           </div>

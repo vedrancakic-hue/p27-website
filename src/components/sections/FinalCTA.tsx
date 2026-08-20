@@ -1,8 +1,4 @@
-import {
-  LICENSE_PRICE,
-  LEMON_SQUEEZY_CHECKOUT_URL,
-  PRICE_LOCK_LINE,
-} from "@/lib/constants";
+import { LICENSE_PRICE, LEMON_SQUEEZY_CHECKOUT_URL } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -26,12 +22,15 @@ export function FinalCTA() {
                 Ready to run a custom solve?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-pretty text-base text-muted sm:text-lg">
-                {PRICE_LOCK_LINE}
+                Lifetime license {LICENSE_PRICE}. One purchase. No subscription.
+                Download P27 — a valid license is required to solve.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Button href="/download">Download Now</Button>
-                <Button href={LEMON_SQUEEZY_CHECKOUT_URL} variant="secondary">
-                  Buy licence — {LICENSE_PRICE}
+                <Button href={LEMON_SQUEEZY_CHECKOUT_URL}>
+                  Buy license — {LICENSE_PRICE}
+                </Button>
+                <Button href="/download" variant="secondary">
+                  Download
                 </Button>
               </div>
             </div>

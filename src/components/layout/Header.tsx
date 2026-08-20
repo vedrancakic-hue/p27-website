@@ -42,11 +42,11 @@ export function Header() {
           aria-label="P27 Solver home"
         >
           <Image
-            src="/brand/p27-solver-logo.png?v=2"
+            src="/brand/p27-solver-mark.png"
             alt="P27 Solver"
-            width={160}
-            height={160}
-            className="h-10 w-auto object-contain sm:h-11"
+            width={200}
+            height={48}
+            className="h-8 w-auto object-contain sm:h-9"
             priority
           />
         </Link>
@@ -64,8 +64,8 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/download" variant="primary">
-            Download
+          <Button href="/#pricing" variant="primary">
+            Buy license
           </Button>
         </div>
 
@@ -107,11 +107,11 @@ export function Header() {
             ))}
             <div className="mt-2 px-3 pb-2">
               <Button
-                href="/download"
+                href="/#pricing"
                 className="w-full"
                 onClick={() => setOpen(false)}
               >
-                Download
+                Buy license
               </Button>
             </div>
           </Container>

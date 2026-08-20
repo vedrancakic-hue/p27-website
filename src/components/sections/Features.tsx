@@ -32,7 +32,7 @@ export function Features() {
         <FadeIn className="mt-12 rounded-2xl border border-border bg-surface p-6 sm:p-8">
           <p className="text-sm font-medium text-accent">Continuous Development</p>
           <p className="mt-3 max-w-3xl text-base leading-relaxed text-muted">
-            Your {LICENSE_PRICE} lifetime licence includes the High-Speed Solver
+            Your {LICENSE_PRICE} lifetime license includes the High-Speed Solver
             Engine upon release. After testing and validation (expected in the
             coming months), the price will be adjusted — present buyers keep the
             upgrade included. Tournament Solver Mode and Exploitative

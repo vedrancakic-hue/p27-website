@@ -6,25 +6,25 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "P27 Solver — High-Performance Poker Analysis",
+    default: "P27 Solver — Exact GTO postflop",
     template: "%s — P27 Solver",
   },
   description:
-    `Native Windows GTO solver for heads-up postflop. Equity FN and Solve FN. Lifetime licence ${LICENSE_PRICE} until ${PRICE_UNTIL}. Published by NRG REAL d.o.o.`,
+    `Native Windows GTO solver for heads-up postflop. Lifetime license ${LICENSE_PRICE} until ${PRICE_UNTIL}. Published by NRG REAL d.o.o.`,
   metadataBase: new URL("https://p27solver.com"),
   alternates: {
     canonical: "https://p27solver.com",
   },
   icons: {
-    icon: "/brand/p27-solver-logo.png",
-    apple: "/brand/p27-solver-logo.png",
+    icon: "/brand/p27-solver-mark.png",
+    apple: "/brand/p27-solver-mark.png",
   },
   openGraph: {
-    title: "P27 Solver — High-Performance Poker Analysis",
+    title: "P27 Solver — Exact GTO postflop",
     description:
-      `Native Windows GTO solver for heads-up postflop. Equity FN and Solve FN. Lifetime licence ${LICENSE_PRICE} until ${PRICE_UNTIL}. Published by NRG REAL d.o.o.`,
+      `Native Windows GTO solver for heads-up postflop. Lifetime license ${LICENSE_PRICE} until ${PRICE_UNTIL}. Published by NRG REAL d.o.o.`,
     type: "website",
-    images: ["/brand/p27-solver-logo.png"],
+    images: ["/brand/p27-solver-mark.png"],
   },
 };
 

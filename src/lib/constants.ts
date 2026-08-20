@@ -8,7 +8,7 @@ export const LEMON_SQUEEZY_CHECKOUT_CONFIGURED = Boolean(
 );
 
 export const CHECKOUT_NOTE =
-  "Lemon Squeezy checkout is not live yet. Buy currently opens the store URL. When checkout is connected, your licence key and download link arrive by email — enter the key in the app (Settings → License, or the first-run dialog).";
+  "Lemon Squeezy checkout is not live yet. Buy currently opens the store URL. When checkout is connected, your license key and download link arrive by email — enter the key in the app (Settings → License, or the first-run dialog).";
 
 export const PRODUCT_VIDEO_URL = "https://youtu.be/WX3ImW5iQrk";
 export const PRODUCT_VIDEO_EMBED_URL =

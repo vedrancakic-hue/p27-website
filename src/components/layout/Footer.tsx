@@ -77,14 +77,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_2fr]">
           <div>
             <Image
-              src="/brand/p27-solver-logo.png?v=2"
+              src="/brand/p27-solver-mark.png"
               alt="P27 Solver"
-              width={160}
-              height={160}
-              className="h-12 w-auto object-contain"
+              width={200}
+              height={48}
+              className="h-8 w-auto object-contain"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Native Windows GTO solver. Lifetime licence {LICENSE_PRICE} until{" "}
+              Native Windows GTO solver. Lifetime license {LICENSE_PRICE} until{" "}
               {PRICE_UNTIL} via Lemon Squeezy. Updates to the current product
               and the High-Speed Solver Engine (for buyers on or before that
               date) — not every future module.
@@ -117,7 +117,7 @@ export function Footer() {
           </p>
           <LegalEntity compact />
           <p className="mt-4 text-sm text-muted">
-            Windows 10+ (64-bit) · Licences via Lemon Squeezy ·{" "}
+            Windows 10+ (64-bit) · Licenses via Lemon Squeezy ·{" "}
             <Link href="/imprint" className="transition hover:text-text">
               Full imprint
             </Link>
