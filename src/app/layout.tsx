@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     canonical: "https://p27solver.com",
   },
   icons: {
-    icon: "/brand/p27-solver-mark.png",
-    apple: "/brand/p27-solver-mark.png",
+    icon: "/brand/p27-cube.png",
+    apple: "/brand/p27-cube.png",
   },
   openGraph: {
     title: "P27 Solver — Exact GTO postflop",
