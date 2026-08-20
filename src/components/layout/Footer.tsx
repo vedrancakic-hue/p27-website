@@ -77,7 +77,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_2fr]">
           <div>
             <Image
-              src="/brand/p27-solver-mark-transparent.png?v=3"
+              src="/brand/p27-solver-mark-transparent.png?v=4"
               alt="P27 Solver"
               width={200}
               height={60}
