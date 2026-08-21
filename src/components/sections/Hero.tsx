@@ -110,8 +110,8 @@ export function Hero() {
             <Image
               src={HERO_SHOT.src}
               alt={HERO_SHOT.alt}
-              width={1920}
-              height={1080}
+              width={HERO_SHOT.width}
+              height={HERO_SHOT.height}
               className="h-auto w-full"
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"

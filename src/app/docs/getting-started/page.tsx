@@ -55,18 +55,22 @@ function Shot({
   src,
   alt,
   caption,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   caption: string;
+  width: number;
+  height: number;
 }) {
   return (
-    <figure className="overflow-hidden rounded-2xl border border-border bg-surface">
+    <figure className="overflow-hidden rounded-2xl border border-border bg-bg">
       <Image
         src={src}
         alt={alt}
-        width={1920}
-        height={1080}
+        width={width}
+        height={height}
         className="h-auto w-full"
         sizes="(max-width: 768px) 100vw, 720px"
       />
@@ -144,6 +148,8 @@ export default function GettingStartedPage() {
               src={HERO_SHOT.src}
               alt={HERO_SHOT.alt}
               caption={HERO_SHOT.caption}
+              width={HERO_SHOT.width}
+              height={HERO_SHOT.height}
             />
             <div className="grid gap-4 sm:grid-cols-3">
               {VIEW_SHOTS.map((shot) => (
@@ -152,6 +158,8 @@ export default function GettingStartedPage() {
                   src={shot.src}
                   alt={shot.alt}
                   caption={shot.caption}
+                  width={shot.width}
+                  height={shot.height}
                 />
               ))}
             </div>
@@ -162,6 +170,8 @@ export default function GettingStartedPage() {
                   src={shot.src}
                   alt={shot.alt}
                   caption={shot.caption}
+                  width={shot.width}
+                  height={shot.height}
                 />
               ))}
             </div>

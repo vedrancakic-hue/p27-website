@@ -32,19 +32,23 @@ function ShotFigure({
   src,
   alt,
   caption,
+  width,
+  height,
   priority,
   className,
 }: {
   src: string;
   alt: string;
   caption: string;
+  width: number;
+  height: number;
   priority?: boolean;
   className?: string;
 }) {
   return (
     <figure
       className={[
-        "overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_24px_80px_-32px_rgba(0,0,0,0.8)]",
+        "overflow-hidden rounded-2xl border border-border bg-bg shadow-[0_24px_80px_-32px_rgba(0,0,0,0.8)]",
         className,
       ]
         .filter(Boolean)
@@ -53,8 +57,8 @@ function ShotFigure({
       <Image
         src={src}
         alt={alt}
-        width={1920}
-        height={1080}
+        width={width}
+        height={height}
         className="h-auto w-full"
         priority={priority}
         sizes="(max-width: 1024px) 100vw, 1024px"
@@ -117,6 +121,8 @@ export function ProductDescription() {
             src={HERO_SHOT.src}
             alt={HERO_SHOT.alt}
             caption={HERO_SHOT.caption}
+            width={HERO_SHOT.width}
+            height={HERO_SHOT.height}
             priority
           />
 
@@ -127,6 +133,8 @@ export function ProductDescription() {
                 src={shot.src}
                 alt={shot.alt}
                 caption={shot.caption}
+                width={shot.width}
+                height={shot.height}
               />
             ))}
           </div>
@@ -138,6 +146,8 @@ export function ProductDescription() {
                 src={shot.src}
                 alt={shot.alt}
                 caption={shot.caption}
+                width={shot.width}
+                height={shot.height}
               />
             ))}
           </div>

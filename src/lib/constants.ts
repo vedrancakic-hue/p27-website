@@ -54,6 +54,8 @@ export const HERO_SHOT = {
   alt: "P27 Solver Strategy view — 13×13 mixed-strategy grid after a solve",
   caption:
     "Strategy — 13×13 hand classes at the current node. Coloured bars follow the legend under the grid (Fold, Check/Call, Bet/Raise sizes from Tree Settings). Mixed colours = mixed frequencies.",
+  width: 1024,
+  height: 546,
 } as const;
 
 /** Full-window view tabs (EV / Equity / Reach) */
@@ -64,6 +66,8 @@ export const VIEW_SHOTS = [
     alt: "P27 Solver EV view after a completed solve",
     caption:
       "EV — after Solve FN finishes. Cell = average EV (bb) at the node; combo detail = EV by action. Colour is an EV heat scale, not the Strategy legend.",
+    width: 1024,
+    height: 630,
   },
   {
     id: "equity",
@@ -71,6 +75,8 @@ export const VIEW_SHOTS = [
     alt: "P27 Solver Equity view on the 13×13 grid",
     caption:
       "Equity — Equity FN runs without a GTO solve. After a solve, the Equity tab also shows equity at the current node.",
+    width: 1024,
+    height: 628,
   },
   {
     id: "reach",
@@ -78,6 +84,8 @@ export const VIEW_SHOTS = [
     alt: "P27 Solver Reach toggle showing range thinning on a line",
     caption:
       "Reach — toggle on the Strategy / EV / Equity row. Fraction of each combo still in play on the path. Tiny reach is height-boosted for readability; the printed % is actual reach.",
+    width: 1024,
+    height: 637,
   },
 ] as const;
 
@@ -89,6 +97,8 @@ export const DETAIL_SHOTS = [
     alt: "P27 Solver Composition panel — villain vs hero range breakdown",
     caption:
       "Composition — how ranges break down on this board (Value, Showdown, Draws, Air). Click a category to highlight matching hands. Range vs board — not the GTO mix.",
+    width: 846,
+    height: 402,
   },
   {
     id: "nav",
@@ -96,6 +106,8 @@ export const DETAIL_SHOTS = [
     alt: "P27 Solver Tree Navigation panel — actions and path",
     caption:
       "Tree Navigation — node path, stacks, available actions (Fold / Call / Raise %), range-weighted frequencies, and path with Back. All views update for the node you select.",
+    width: 390,
+    height: 475,
   },
 ] as const;
 
