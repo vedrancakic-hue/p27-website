@@ -6,21 +6,65 @@ import {
   APP_FUNCTIONS,
   CFR_SECTIONS,
   CORE_CONCEPTS,
+  DETAIL_SHOTS,
   FEATURES,
+  HERO_SHOT,
   LEMON_SQUEEZY_CHECKOUT_URL,
   PRODUCT_VIDEO_EMBED_URL,
   PRODUCT_VIDEO_URL,
+  SOLVE_PROGRESS,
+  VIEW_SHOTS,
+  WORKSPACE_VIEWS,
 } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
-type TabId = "overview" | "cfr" | "features";
+type TabId = "overview" | "workspace" | "cfr" | "features";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "workspace", label: "Workspace" },
   { id: "cfr", label: "CFR Engine" },
   { id: "features", label: "Features" },
 ];
+
+function ShotFigure({
+  src,
+  alt,
+  caption,
+  priority,
+  className,
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  return (
+    <figure
+      className={[
+        "overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_24px_80px_-32px_rgba(0,0,0,0.8)]",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={1920}
+        height={1080}
+        className="h-auto w-full"
+        priority={priority}
+        sizes="(max-width: 1024px) 100vw, 1024px"
+      />
+      <figcaption className="border-t border-border px-4 py-3 text-sm leading-relaxed text-muted">
+        {caption}
+      </figcaption>
+    </figure>
+  );
+}
 
 export function ProductDescription() {
   const [tab, setTab] = useState<TabId>("overview");
@@ -35,7 +79,8 @@ export function ProductDescription() {
           </h1>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-muted">
             A native Windows GTO solver for heads-up postflop — Equity FN and
-            Solve FN in one workspace.
+            Solve FN in one workspace. 13×13 strategy grid, Composition, and
+            Game Tree navigation.
           </p>
           <div className="mt-6">
             <Button href={PRODUCT_VIDEO_URL} variant="secondary">
@@ -67,19 +112,36 @@ export function ProductDescription() {
           </p>
         </div>
 
-        <figure className="mt-8 overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_24px_80px_-32px_rgba(0,0,0,0.8)]">
-          <Image
-            src="/screenshots/workspace.png"
-            alt="P27 Solver workspace showing strategy grids, table view, equity analysis, and tree navigation"
-            width={1920}
-            height={1080}
-            className="h-auto w-full"
+        <div className="mt-10 space-y-8">
+          <ShotFigure
+            src={HERO_SHOT.src}
+            alt={HERO_SHOT.alt}
+            caption={HERO_SHOT.caption}
             priority
           />
-          <figcaption className="border-t border-border px-4 py-3 text-center text-sm text-muted">
-            P27 Solver workspace — strategy, ranges, equity, and tree navigation
-          </figcaption>
-        </figure>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {VIEW_SHOTS.map((shot) => (
+              <ShotFigure
+                key={shot.id}
+                src={shot.src}
+                alt={shot.alt}
+                caption={shot.caption}
+              />
+            ))}
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {DETAIL_SHOTS.map((shot) => (
+              <ShotFigure
+                key={shot.id}
+                src={shot.src}
+                alt={shot.alt}
+                caption={shot.caption}
+              />
+            ))}
+          </div>
+        </div>
 
         <div className="mt-12">
           <div
@@ -124,9 +186,9 @@ export function ProductDescription() {
                   computes range-vs-range equity without a GTO solve. Solve FN
                   runs a Rust CFR+ engine for heads-up GTO on Flop, Turn, and
                   River (SOLVE routes by board length: 3 / 4 / 5 cards). Solve
-                  Quality presets are Quick, Normal, and Pro. Multiway trees,
-                  tournament / ICM workflow, Import, GTO Adjustments, and
-                  villain profiles are Coming Soon.
+                  Quality presets are Quick, Normal, and Pro. Cash play is the
+                  shipping focus; Tournament mode, multiway trees, Import, GTO
+                  Adjustments, and villain profiles are Coming Soon.
                 </p>
 
                 <div>
@@ -134,8 +196,7 @@ export function ProductDescription() {
                     Two core functions
                   </h2>
                   <p className="mt-3 text-base leading-relaxed text-muted">
-                    The workspace clearly separates equity analysis from GTO
-                    solving. They are different tools for different jobs.
+                    The workspace separates equity analysis from GTO solving.
                   </p>
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     {APP_FUNCTIONS.map((fn) => (
@@ -161,6 +222,58 @@ export function ProductDescription() {
                   </h2>
                   <div className="mt-6 space-y-6">
                     {CORE_CONCEPTS.map((item) => (
+                      <div key={item.title}>
+                        <h3 className="text-lg font-medium text-text">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-base leading-relaxed text-muted">
+                          {item.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            {tab === "workspace" ? (
+              <div
+                role="tabpanel"
+                id="panel-workspace"
+                aria-labelledby="tab-workspace"
+                className="mx-auto max-w-3xl space-y-10"
+              >
+                <div>
+                  <h2 className="text-2xl font-semibold tracking-tight text-text">
+                    SOLVE progress
+                  </h2>
+                  <p className="mt-3 text-base leading-relaxed text-muted">
+                    Computation is local. A large result is then handed from the
+                    native engine to the UI.
+                  </p>
+                  <div className="mt-6 space-y-4">
+                    {SOLVE_PROGRESS.map((item) => (
+                      <div
+                        key={item.title}
+                        className="rounded-2xl border border-border bg-surface p-5"
+                      >
+                        <h3 className="font-mono text-sm text-accent">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted">
+                          {item.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-semibold tracking-tight text-text">
+                    Views & panels
+                  </h2>
+                  <div className="mt-6 space-y-6">
+                    {WORKSPACE_VIEWS.map((item) => (
                       <div key={item.title}>
                         <h3 className="text-lg font-medium text-text">
                           {item.title}

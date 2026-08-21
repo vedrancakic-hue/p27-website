@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   APP_FUNCTIONS,
   CFR_SECTIONS,
   CORE_CONCEPTS,
+  DETAIL_SHOTS,
+  HERO_SHOT,
   LEMON_SQUEEZY_CHECKOUT_URL,
+  SOLVE_PROGRESS,
   SOLVER_BEHAVIOR,
   SYSTEM_REQUIREMENTS,
+  VIEW_SHOTS,
   WORKFLOW_STEPS,
+  WORKSPACE_VIEWS,
 } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -14,7 +20,7 @@ import { Container } from "@/components/ui/Container";
 export const metadata: Metadata = {
   title: "Getting Started",
   description:
-    "Native Windows GTO solver for heads-up postflop — Equity FN, Solve FN, CFR engine, workflow, and system requirements.",
+    "Native Windows GTO solver for heads-up postflop — Equity FN, Solve FN, workspace views, solve progress, and system requirements.",
 };
 
 function DocSection({
@@ -45,6 +51,32 @@ function Concept({ title, body }: { title: string; body: string }) {
   );
 }
 
+function Shot({
+  src,
+  alt,
+  caption,
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+}) {
+  return (
+    <figure className="overflow-hidden rounded-2xl border border-border bg-surface">
+      <Image
+        src={src}
+        alt={alt}
+        width={1920}
+        height={1080}
+        className="h-auto w-full"
+        sizes="(max-width: 768px) 100vw, 720px"
+      />
+      <figcaption className="border-t border-border px-4 py-3 text-sm leading-relaxed text-muted">
+        {caption}
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function GettingStartedPage() {
   return (
     <article className="py-20 sm:py-28">
@@ -58,12 +90,11 @@ export default function GettingStartedPage() {
           Solve FN in one workspace.
         </p>
         <p className="mt-6 text-base leading-relaxed text-muted">
-          Equity FN computes range-vs-range equity without a GTO solve. Solve
-          FN runs a native Rust CFR+ engine for Flop, Turn, and River (SOLVE
-          routes by board length: 3 / 4 / 5 cards). Solve Quality presets are
-          Quick, Normal, and Pro. Multiway trees, tournament / MTT / ICM as a
-          working workflow, Import, GTO Adjustments, and villain profiles are
-          Coming Soon.
+          Set board and ranges → choose Solve Quality → SOLVE → wait through 0%
+          setup, iteration %, then 100% packaging → walk the tree → read
+          Strategy, EV, Equity, Reach, and Composition. Multiway trees,
+          tournament / MTT / ICM as a working workflow, Import, GTO Adjustments,
+          and villain profiles are Coming Soon.
         </p>
 
         <nav
@@ -74,9 +105,12 @@ export default function GettingStartedPage() {
           <ul className="mt-3 grid gap-2 text-sm text-muted sm:grid-cols-2">
             {[
               ["core-functions", "Equity FN & Solve FN"],
+              ["screenshots", "Workspace screenshots"],
               ["core-concepts", "Core Concepts"],
               ["cfr-engine", "The CFR Engine"],
               ["how-to-use", "How to Use"],
+              ["solve-progress", "Solve progress"],
+              ["workspace-views", "Views & panels"],
               ["solver-behavior", "Solver Behavior"],
               ["system-specs", "System Specifications"],
               ["about", "About"],
@@ -103,6 +137,34 @@ export default function GettingStartedPage() {
                 body={fn.body}
               />
             ))}
+          </DocSection>
+
+          <DocSection id="screenshots" title="Workspace screenshots">
+            <Shot
+              src={HERO_SHOT.src}
+              alt={HERO_SHOT.alt}
+              caption={HERO_SHOT.caption}
+            />
+            <div className="grid gap-4 sm:grid-cols-3">
+              {VIEW_SHOTS.map((shot) => (
+                <Shot
+                  key={shot.id}
+                  src={shot.src}
+                  alt={shot.alt}
+                  caption={shot.caption}
+                />
+              ))}
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {DETAIL_SHOTS.map((shot) => (
+                <Shot
+                  key={shot.id}
+                  src={shot.src}
+                  alt={shot.alt}
+                  caption={shot.caption}
+                />
+              ))}
+            </div>
           </DocSection>
 
           <DocSection id="core-concepts" title="Core Concepts">
@@ -133,11 +195,9 @@ export default function GettingStartedPage() {
                     </p>
                     {step.step === "04" ? (
                       <p className="mt-3 text-base leading-relaxed text-muted">
-                        The engine detects the street from the board cards you
-                        have dealt (3 cards = Flop, 4 = Turn, 5 = River) and
-                        runs the appropriate solver. No manual street selection
-                        is needed. GTO Adjustments (ICM, risk premium, stack
-                        pressure) are Coming Soon and are not in the shipping
+                        Street is detected from board cards (3 = Flop, 4 =
+                        Turn, 5 = River). No manual street selection. GTO
+                        Adjustments are Coming Soon and are not in the shipping
                         app.
                       </p>
                     ) : null}
@@ -145,6 +205,22 @@ export default function GettingStartedPage() {
                 </li>
               ))}
             </ol>
+          </DocSection>
+
+          <DocSection id="solve-progress" title="Solve progress">
+            <p className="text-base leading-relaxed text-muted">
+              Shown next to the cash/tournament toggle while a solve runs, then
+              as a completed badge. Computation is local — not a cloud download.
+            </p>
+            {SOLVE_PROGRESS.map((item) => (
+              <Concept key={item.title} title={item.title} body={item.body} />
+            ))}
+          </DocSection>
+
+          <DocSection id="workspace-views" title="Views & panels">
+            {WORKSPACE_VIEWS.map((item) => (
+              <Concept key={item.title} title={item.title} body={item.body} />
+            ))}
           </DocSection>
 
           <DocSection id="solver-behavior" title="Solver Behavior">
@@ -171,7 +247,14 @@ export default function GettingStartedPage() {
               P27 Solver is a desktop GTO solver for heads-up postflop, built
               for offline analysis. Equity FN and Solve FN run locally. Ranges,
               boards, and solves stay on your machine. Licences are sold
-              through Lemon Squeezy as merchant of record.
+              through Lemon Squeezy as merchant of record. Contact{" "}
+              <a
+                href="mailto:info@p27solver.com"
+                className="text-accent transition hover:brightness-110"
+              >
+                info@p27solver.com
+              </a>
+              .
             </p>
           </DocSection>
         </div>

@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { LICENSE_PRICE, LEMON_SQUEEZY_CHECKOUT_URL } from "@/lib/constants";
+import {
+  HERO_SHOT,
+  LICENSE_PRICE,
+  LEMON_SQUEEZY_CHECKOUT_URL,
+} from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
@@ -104,8 +108,8 @@ export function Hero() {
         <motion.div className="mt-14 sm:mt-20" {...item(0.36)}>
           <figure className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_24px_80px_-32px_rgba(0,0,0,0.8)]">
             <Image
-              src="/screenshots/workspace.png"
-              alt="P27 Solver application workspace showing ranges, board, and solve controls"
+              src={HERO_SHOT.src}
+              alt={HERO_SHOT.alt}
               width={1920}
               height={1080}
               className="h-auto w-full"

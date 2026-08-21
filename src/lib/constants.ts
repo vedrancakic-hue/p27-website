@@ -48,6 +48,57 @@ export const WHY_POINTS = [
   `Further solver speed upgrades included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released`,
 ] as const;
 
+/** Hero / primary workspace shot */
+export const HERO_SHOT = {
+  src: "/screenshots/Sol_1_str.png",
+  alt: "P27 Solver Strategy view — 13×13 mixed-strategy grid after a solve",
+  caption:
+    "Strategy — 13×13 hand classes at the current node. Coloured bars follow the legend under the grid (Fold, Check/Call, Bet/Raise sizes from Tree Settings). Mixed colours = mixed frequencies.",
+} as const;
+
+/** Full-window view tabs (EV / Equity / Reach) */
+export const VIEW_SHOTS = [
+  {
+    id: "ev",
+    src: "/screenshots/Sol_1_ev.png",
+    alt: "P27 Solver EV view after a completed solve",
+    caption:
+      "EV — after Solve FN finishes. Cell = average EV (bb) at the node; combo detail = EV by action. Colour is an EV heat scale, not the Strategy legend.",
+  },
+  {
+    id: "equity",
+    src: "/screenshots/Sol_1_equity.png",
+    alt: "P27 Solver Equity view on the 13×13 grid",
+    caption:
+      "Equity — Equity FN runs without a GTO solve. After a solve, the Equity tab also shows equity at the current node.",
+  },
+  {
+    id: "reach",
+    src: "/screenshots/Sol_1_reach.png",
+    alt: "P27 Solver Reach toggle showing range thinning on a line",
+    caption:
+      "Reach — toggle on the Strategy / EV / Equity row. Fraction of each combo still in play on the path. Tiny reach is height-boosted for readability; the printed % is actual reach.",
+  },
+] as const;
+
+/** Cropped panels (Composition + Tree Navigation) — not full-window repeats */
+export const DETAIL_SHOTS = [
+  {
+    id: "composition",
+    src: "/screenshots/Sol_1_composition.png",
+    alt: "P27 Solver Composition panel — villain vs hero range breakdown",
+    caption:
+      "Composition — how ranges break down on this board (Value, Showdown, Draws, Air). Click a category to highlight matching hands. Range vs board — not the GTO mix.",
+  },
+  {
+    id: "nav",
+    src: "/screenshots/Sol_1_nav.png",
+    alt: "P27 Solver Tree Navigation panel — actions and path",
+    caption:
+      "Tree Navigation — node path, stacks, available actions (Fold / Call / Raise %), range-weighted frequencies, and path with Back. All views update for the node you select.",
+  },
+] as const;
+
 export const FEATURES = [
   {
     title: "Equity FN",
@@ -57,37 +108,37 @@ export const FEATURES = [
   {
     title: "Solve FN",
     description:
-      "GTO for Flop, Turn, and River. SOLVE routes by board length: 3 cards = Flop, 4 = Turn, 5 = River.",
+      "GTO for Flop, Turn, and River. One SOLVE control; street from board length (3 / 4 / 5 cards). Button reads Solving… then SOLVED.",
   },
   {
-    title: "Interactive range grids",
+    title: "Strategy grid",
     description:
-      "Build and inspect hero and villain ranges on the hand grid in a focused desktop workspace.",
-  },
-  {
-    title: "Strategy visualisation",
-    description:
-      "Read action frequencies after a solve so lines stay clear and usable.",
+      "13×13 hand classes with mixed action frequencies at the current node. Legend colours match live Tree Settings bet sizes.",
   },
   {
     title: "EV after a solve",
     description:
-      "Once Solve FN finishes, expected value is taken from the solved data — not a separate guess.",
+      "Expected value from the solved strategy once the result is loaded — class averages and combo EV by action.",
+  },
+  {
+    title: "Equity tab & Reach",
+    description:
+      "Equity on the same grid (also via Equity FN without solving). Reach toggle shows how much of each combo still reaches the node after the line.",
+  },
+  {
+    title: "Composition",
+    description:
+      "How hero and villain ranges break down on this board (made hands, pairs, draws, air). Click a category to highlight matching hands.",
   },
   {
     title: "Tree navigation",
     description:
-      "Walk the decision tree from the root node through betting lines.",
+      "From the root node, walk betting lines and chance cards. Strategy and related views update for the node you select.",
   },
   {
-    title: "Save situations",
+    title: "Solve Quality",
     description:
-      "Save spots locally and return to them later. Everything stays on your machine.",
-  },
-  {
-    title: "Solve Quality presets",
-    description:
-      "Quick, Normal, or Pro — choose how far the CFR engine runs for the spot.",
+      "Quick, Normal, or Pro — how far CFR runs for the spot, not a second product.",
   },
   {
     title: "Heads-up postflop",
@@ -100,12 +151,58 @@ export const APP_FUNCTIONS = [
   {
     name: "Equity FN",
     role: "Equity analysis",
-    body: "Equity FN runs independently of the solver. Use it to preview how ranges collide on a board and to inspect range equity before — or without — launching a full GTO solve.",
+    body: "Equity FN runs independently of the solver. Use it for range-vs-range equity on the current board before — or without — a full GTO solve. After a solve, the Equity tab can also show equity at the current tree node.",
   },
   {
     name: "Solve FN",
     role: "GTO solving · Flop, Turn & River",
-    body: "Solve FN is the GTO engine. It computes game-theory-optimal strategies for Flop, Turn, and River. The SOLVE action detects the street from the board (3 cards = Flop, 4 = Turn, 5 = River) and routes to the correct solver automatically.",
+    body: "Solve FN is the GTO engine. One SOLVE control detects the street from the board (3 cards = Flop, 4 = Turn, 5 = River). While running it reads Solving…; when the UI has the result it reads SOLVED. Solve Quality (Quick / Normal / Pro) sets how far CFR runs.",
+  },
+] as const;
+
+export const SOLVE_PROGRESS = [
+  {
+    title: "0%",
+    body: "CFR has not started counting iterations yet. The engine is building the situation: equity matrices for this board and the two ranges, then the decision tree. Progress stays at 0% during that setup. Computation is local — not a cloud download.",
+  },
+  {
+    title: "1%–99%",
+    body: "CFR is running. The percentage is current iteration ÷ total iterations for this Solve Quality and street. The time counter is elapsed seconds.",
+  },
+  {
+    title: "100% while still Solving…",
+    body: "Iterations have finished. The engine is packaging a large strategy payload and handing it to the interface. On flop this can take up to a few minutes. Strategy / EV / Reach are not reliable until the badge flips to the completed state and the button reads SOLVED.",
+  },
+  {
+    title: "Completed (✓ 100% • time)",
+    body: "The UI has the result. Walk the tree and read Strategy, EV, Equity, Reach, and Composition at the current node.",
+  },
+] as const;
+
+export const WORKSPACE_VIEWS = [
+  {
+    title: "Strategy",
+    body: "13×13 grid of hand classes (AA, AKs, AKo, …). Each cell is the mixed strategy at the current node. Coloured bars = actions from the legend under the grid (Fold, Check/Call, Bet/Raise sizes from Tree Settings). Mixed colours in one cell = mixed frequencies. Select a hand for particular combos, not only the class average.",
+  },
+  {
+    title: "EV",
+    body: "Available after Solve FN completes and the result is in the UI. Matrix cell = average EV of that hand class at the current node (bb). Combo detail = EV by action (check vs each bet size, etc.). Colour is an EV heat scale — not the Strategy action legend.",
+  },
+  {
+    title: "Equity",
+    body: "Equity FN can run without a GTO solve. After a solve, the Equity tab shows equity at the current node on the same grid. Class averages on the matrix; particular combos in detail.",
+  },
+  {
+    title: "Reach",
+    body: "A toggle on the Strategy / EV / Equity row — meaningful after a solve on a line. Shows what fraction of each combo is still in play after the actions on the current path. Very small reach is drawn taller so the grid stays readable; the printed percentage is the real reach.",
+  },
+  {
+    title: "Composition",
+    body: "How current ranges break down on this board (hero vs villain): quads through air, pairs, draws, and related categories. Values are % of the range. Click a category to highlight matching hands. This is range-vs-board classification, not the GTO mix; it updates with the board and, when solved, the ranges still reaching the node.",
+  },
+  {
+    title: "Game Tree",
+    body: "After a solve you start at the root node for that street. Click actions (Check, Bet %, Fold, Call, Raise — labels match bet sizes for the spot) to move down the line. Turn and river include chance nodes for the next card. Path is shown; Back or a previous segment returns. All views refer to the node you are on.",
   },
 ] as const;
 
@@ -129,15 +226,15 @@ export const WORKFLOW_STEPS = [
   },
   {
     step: "04",
-    title: "Solve FN",
+    title: "SOLVE",
     description:
-      "Run Solve FN. The engine detects the street from board cards (3 / 4 / 5) and computes GTO strategy.",
+      "Run Solve FN. Watch 0% setup, then iteration %, then 100% packaging until the badge completes and the button reads SOLVED.",
   },
   {
     step: "05",
-    title: "Review & save",
+    title: "Walk & review",
     description:
-      "Explore strategy, EV after the solve, and Equity FN. Walk the tree and save the situation locally.",
+      "Walk the tree. Read Strategy, EV, Equity, Reach, and Composition at each node. Save locally.",
   },
 ] as const;
 
@@ -270,22 +367,26 @@ export const CFR_SECTIONS = [
   },
   {
     title: "Equity FN vs Solve FN",
-    body: "Equity FN and Solve FN are separate functions. Equity FN previews range-vs-range equity on a board without solving. Solve FN runs the CFR GTO engine for Flop, Turn, and River. After a solve completes, EV and strategy are read from the solved data.",
+    body: "Equity FN and Solve FN are separate functions. Equity FN previews range-vs-range equity on a board without solving. Solve FN runs the CFR GTO engine for Flop, Turn, and River. After a solve completes and the result is in the UI, Strategy, EV, Reach, and node Equity are read from the solved data.",
   },
   {
     title: "Solve Quality",
-    body: "Quick, Normal, and Pro presets control how far the engine runs. Choose a preset before Solve FN.",
+    body: "Quick, Normal, and Pro presets control how far CFR runs — not a second product. Choose a preset before SOLVE.",
   },
 ] as const;
 
 export const SOLVER_BEHAVIOR = [
   {
     title: "Solve FN · Automatic Street Detection",
-    body: "Solve FN inspects the number of board cards and routes to the correct GTO solver — Flop, Turn, or River. No manual street selection is required.",
+    body: "One SOLVE control. Street comes from board cards (3 = Flop, 4 = Turn, 5 = River). The button reads Solving… while work is in progress and SOLVED when the UI has the result.",
+  },
+  {
+    title: "Solve progress · local computation",
+    body: "Progress next to the cash/tournament toggle: 0% while the engine builds equity matrices and the tree; 1%–99% while CFR iterations run; 100% while still Solving… means packaging the strategy payload into the UI (can take up to a few minutes on flop). Strategy / EV / Reach are reliable only after the completed badge (✓ 100% • time) and SOLVED.",
   },
   {
     title: "Equity FN · Independent Analysis",
-    body: "Equity FN does not run a GTO solve. It calculates how ranges collide on the current board so you can inspect equity separately from Solve FN.",
+    body: "Equity FN does not require a GTO solve. It calculates range-vs-range equity on the current board. After a solve, the Equity tab can also show equity at the current node.",
   },
   {
     title: "Sleep & Standby Prevention",
@@ -305,7 +406,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: `What do I get with the ${LICENSE_PRICE} lifetime licence?`,
-    answer: `The current Windows solver: Equity FN, Solve FN (Flop / Turn / River), range grids, strategy visualisation, EV after a solve, tree navigation, save situations, Solve Quality presets, and heads-up postflop. ${PRICE_LOCK_LINE} Tournament Solver Mode and Exploitative Best-Response Solver are not included.`,
+    answer: `The current Windows solver: Equity FN, Solve FN (Flop / Turn / River), Strategy / EV / Equity / Reach, Composition, tree navigation, save situations, Solve Quality presets, and heads-up postflop. ${PRICE_LOCK_LINE} Tournament Solver Mode and Exploitative Best-Response Solver are not included.`,
   },
   {
     question: `Will the price change after ${PRICE_UNTIL}?`,
