@@ -67,7 +67,7 @@ export const VIEW_SHOTS = [
     caption:
       "EV — after Solve FN finishes. Cell = average EV (bb) at the node; combo detail = EV by action. Colour is an EV heat scale, not the Strategy legend.",
     width: 1024,
-    height: 630,
+    height: 537,
   },
   {
     id: "equity",
@@ -76,7 +76,7 @@ export const VIEW_SHOTS = [
     caption:
       "Equity — Equity FN runs without a GTO solve. After a solve, the Equity tab also shows equity at the current node.",
     width: 1024,
-    height: 628,
+    height: 535,
   },
   {
     id: "reach",
@@ -85,7 +85,7 @@ export const VIEW_SHOTS = [
     caption:
       "Reach — toggle on the Strategy / EV / Equity row. Fraction of each combo still in play on the path. Tiny reach is height-boosted for readability; the printed % is actual reach.",
     width: 1024,
-    height: 637,
+    height: 544,
   },
 ] as const;
 
