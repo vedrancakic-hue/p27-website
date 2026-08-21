@@ -126,7 +126,7 @@ export function ProductDescription() {
             priority
           />
 
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="space-y-8">
             {VIEW_SHOTS.map((shot) => (
               <ShotFigure
                 key={shot.id}

@@ -151,7 +151,7 @@ export default function GettingStartedPage() {
               width={HERO_SHOT.width}
               height={HERO_SHOT.height}
             />
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="space-y-6">
               {VIEW_SHOTS.map((shot) => (
                 <Shot
                   key={shot.id}
