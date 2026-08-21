@@ -148,6 +148,11 @@ export const FEATURES = [
       "From the root node, walk betting lines and chance cards. Strategy and related views update for the node you select.",
   },
   {
+    title: "Save & review",
+    description:
+      "Save a solved spot locally with SAVE. Open it later from Saved and walk Strategy, EV, Equity, Reach, and Composition in detail at any time — no need to re-solve to study the result.",
+  },
+  {
     title: "Solve Quality",
     description:
       "Quick, Normal, or Pro — how far CFR runs for the spot, not a second product.",
@@ -244,9 +249,9 @@ export const WORKFLOW_STEPS = [
   },
   {
     step: "05",
-    title: "Walk & review",
+    title: "Walk, save & review",
     description:
-      "Walk the tree. Read Strategy, EV, Equity, Reach, and Composition at each node. Save locally.",
+      "Walk the tree. Read Strategy, EV, Equity, Reach, and Composition. Save the solved spot locally and reopen it later for detailed review without re-solving.",
   },
 ] as const;
 
@@ -262,9 +267,9 @@ export const ROADMAP_ITEMS = [
     description: `Dedicated tournament solving is in development. Game Settings for tournament / MTT / ICM is disabled in the shipping app. Not included in the current ${LICENSE_PRICE} lifetime licence.`,
   },
   {
-    status: `Coming soon · not in the ${LICENSE_PRICE} licence`,
-    title: "Exploitative Best-Response Solver",
-    description: `Best-response solving against a specific opponent model. Villain profiles are not a working module in the shipping app. Not included in the current ${LICENSE_PRICE} lifetime licence.`,
+    status: `In validation · not in the ${LICENSE_PRICE} licence`,
+    title: "Exploitative Best-Response (Exploitative Solve FN)",
+    description: `Currently in a validation period. When released, Exploitative Solve FN will compute a best-response strategy against a villain with a defined profile — the strongest available line versus that model, rather than pure GTO. Not included in the current ${LICENSE_PRICE} lifetime licence.`,
   },
 ] as const;
 
@@ -298,8 +303,9 @@ export const COMING_SOON_ITEMS = [
     note: `Not included in the ${LICENSE_PRICE} licence`,
   },
   {
-    title: "Exploitative Best-Response Solver",
-    note: `Not included in the ${LICENSE_PRICE} licence`,
+    title: "Exploitative Best-Response (Exploitative Solve FN)",
+    note: `In validation — best-response strategy vs a defined villain profile (not pure GTO). Not included in the ${LICENSE_PRICE} licence`,
+    teaser: true,
   },
 ] as const;
 
@@ -316,8 +322,8 @@ export const NEWS_ITEMS = [
   },
   {
     category: "Development Update",
-    title: "Exploitative Best-Response Solver",
-    body: `Best-response solving against a specific opponent model is in development. It is not included in the ${LICENSE_PRICE} lifetime licence.`,
+    title: "Exploitative Solve FN",
+    body: `Exploitative Best-Response (Exploitative Solve FN) is in a validation period. The aim is a best-response strategy against a villain with a defined profile. It is not in the shipping app and is not included in the ${LICENSE_PRICE} lifetime licence.`,
   },
 ] as const;
 
@@ -337,11 +343,11 @@ export const SYSTEM_REQUIREMENTS = [
   },
   {
     title: "Memory (RAM)",
-    body: "16 GB minimum. 32 GB or more is recommended, especially for Flop solves with wider ranges. Larger ranges or additional bet sizes increase memory usage.",
+    body: "16 GB minimum. 32 GB or more is recommended, especially for Flop solves with wider ranges. Larger ranges or additional bet sizes increase memory usage. After a heavy solve, waiting a few minutes before the next one helps memory free up.",
   },
   {
     title: "Storage",
-    body: "SSD recommended. The application itself is compact; saved situations benefit from fast storage.",
+    body: "SSD recommended. The application itself is compact; saved situations benefit from fast storage so you can reopen and review solves later in detail.",
   },
   {
     title: "Operating System",
@@ -405,6 +411,10 @@ export const SOLVER_BEHAVIOR = [
     body: "Flop solves can run for several minutes or longer. During a flop solve the application prevents your computer from entering sleep or standby. Turn and river solves typically complete in seconds and do not require this protection.",
   },
   {
+    title: "Save & review",
+    body: "After a solve, use SAVE to store the situation on your machine. Open it later from Saved and review Strategy, EV, Equity, Reach, Composition, and the tree in detail at any time without running Solve FN again.",
+  },
+  {
     title: "Consistent Engine",
     body: "Flop, Turn, and River share the same underlying CFR+ engine and regret matching. The difference is the number of chance-node boards evaluated per iteration (Block MCCFR sampling on Flop and Turn vs. full evaluation on the River).",
   },
@@ -442,6 +452,11 @@ export const FAQ_ITEMS = [
     question: "Does it run in the browser?",
     answer:
       "No. P27 Solver is a downloadable native desktop app for Windows 10 or later (64-bit) only.",
+  },
+  {
+    question: "Should I run other heavy apps while solving?",
+    answer:
+      "Preferably not. Solve FN is demanding on both CPU and RAM. Close or pause other taxing applications (browsers with many tabs, games, video editors, and similar) while a solve is running so the engine can use the machine fully. After a solve finishes, it is recommendable to wait up to about five minutes before starting the next solve so memory can free up — especially after heavy flop solves.",
   },
   {
     question: "Where can I read the docs?",

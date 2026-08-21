@@ -31,17 +31,43 @@ export function ComingSoon() {
               </p>
 
               <ul className="mx-auto mt-8 max-w-xl space-y-4 text-left">
-                {COMING_SOON_ITEMS.map((item) => (
-                  <li key={item.title} className="flex items-start gap-3">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
-                    <div>
-                      <p className="text-base text-text">{item.title}</p>
-                      {item.note ? (
-                        <p className="mt-1 text-sm text-muted">{item.note}</p>
-                      ) : null}
-                    </div>
-                  </li>
-                ))}
+                {COMING_SOON_ITEMS.map((item) => {
+                  const teaser = "teaser" in item && item.teaser;
+                  return (
+                    <li
+                      key={item.title}
+                      className={
+                        teaser
+                          ? "rounded-2xl border border-accent/25 bg-accent-soft/40 px-4 py-3"
+                          : "flex items-start gap-3"
+                      }
+                    >
+                      {teaser ? (
+                        <div>
+                          <p className="text-xs font-medium uppercase tracking-wide text-accent">
+                            In validation
+                          </p>
+                          <p className="mt-1 text-base text-text">{item.title}</p>
+                          {item.note ? (
+                            <p className="mt-1 text-sm text-muted">{item.note}</p>
+                          ) : null}
+                        </div>
+                      ) : (
+                        <>
+                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                          <div>
+                            <p className="text-base text-text">{item.title}</p>
+                            {item.note ? (
+                              <p className="mt-1 text-sm text-muted">
+                                {item.note}
+                              </p>
+                            ) : null}
+                          </div>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
 
               <p className="mt-10 text-base leading-relaxed text-muted">
