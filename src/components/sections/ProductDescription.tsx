@@ -86,6 +86,10 @@ export function ProductDescription() {
             Solve FN in one workspace. 13×13 strategy grid, Composition, and
             Game Tree navigation.
           </p>
+          <p className="mt-4 text-pretty text-base leading-relaxed text-muted">
+            Most features are intuitive and self-explanatory. The main ones are
+            described below and in the product video.
+          </p>
           <div className="mt-6">
             <Button href={PRODUCT_VIDEO_URL} variant="secondary">
               Watch product description
