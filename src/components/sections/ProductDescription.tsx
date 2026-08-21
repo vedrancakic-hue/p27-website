@@ -139,7 +139,7 @@ export function ProductDescription() {
             ))}
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="space-y-8">
             {DETAIL_SHOTS.map((shot) => (
               <ShotFigure
                 key={shot.id}

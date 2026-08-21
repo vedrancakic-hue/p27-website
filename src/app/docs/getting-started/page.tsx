@@ -163,7 +163,7 @@ export default function GettingStartedPage() {
                 />
               ))}
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-6">
               {DETAIL_SHOTS.map((shot) => (
                 <Shot
                   key={shot.id}
