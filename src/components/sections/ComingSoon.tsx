@@ -45,10 +45,11 @@ export function ComingSoon() {
               </ul>
 
               <p className="mt-10 text-base leading-relaxed text-muted">
-                {PRICE_INTRO_LINE} The High-Speed Solver Engine is included for{" "}
-                {LICENSE_PRICE} buyers on or before {PRICE_UNTIL} upon release.
-                Tournament Mode and Exploitative Best-Response are not part of
-                the {LICENSE_PRICE} license.
+                {PRICE_INTRO_LINE} Further solver speed upgrades are under
+                testing and validation, and are included for {LICENSE_PRICE}{" "}
+                buyers on or before {PRICE_UNTIL} when released. Tournament Mode
+                and Exploitative Best-Response are not part of the{" "}
+                {LICENSE_PRICE} license.
               </p>
             </div>
           </div>

@@ -51,7 +51,7 @@ export default function TermsPage() {
               sold via Lemon Squeezy as merchant of record. There is no
               subscription. {PRICE_INTRO_LINE} Anyone who buys at {LICENSE_PRICE}{" "}
               on or before {PRICE_UNTIL} keeps that lifetime licence, including
-              the High-Speed Solver Engine when released. Tournament Solver Mode
+              further solver speed upgrades when released. Tournament Solver Mode
               and Exploitative Best-Response Solver are not included.
             </p>
             <p className="mt-3">

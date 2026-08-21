@@ -87,7 +87,7 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               Native Windows GTO solver. Lifetime license {LICENSE_PRICE} until{" "}
               {PRICE_UNTIL} via Lemon Squeezy. Updates to the current product
-              and the High-Speed Solver Engine (for buyers on or before that
+              and further solver speed upgrades (for buyers on or before that
               date) — not every future module.
             </p>
           </div>

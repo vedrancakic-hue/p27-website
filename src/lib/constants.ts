@@ -19,7 +19,7 @@ export const PRICE_UNTIL = "1 December 2026";
 
 export const PRICE_INTRO_LINE = `Introductory lifetime price ${LICENSE_PRICE} until ${PRICE_UNTIL}. After that date the price will be adjusted for new buyers.`;
 
-export const PRICE_LOCK_LINE = `Buy by ${PRICE_UNTIL} to lock ${LICENSE_PRICE} lifetime, including the High-Speed engine when released.`;
+export const PRICE_LOCK_LINE = `Buy by ${PRICE_UNTIL} to lock ${LICENSE_PRICE} lifetime, including further solver speed upgrades when released.`;
 
 /** Legal entity — footer/imprint for Azure Artifact Signing. Do not remove. */
 export const COMPANY = {
@@ -45,7 +45,7 @@ export const WHY_POINTS = [
   "Equity FN and Solve FN in one workspace",
   "Heads-up GTO postflop: Flop, Turn, and River",
   "Solve Quality presets: Quick, Normal, and Pro",
-  `High-Speed Solver Engine included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released`,
+  `Further solver speed upgrades included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released`,
 ] as const;
 
 export const FEATURES = [
@@ -144,8 +144,8 @@ export const WORKFLOW_STEPS = [
 export const ROADMAP_ITEMS = [
   {
     status: "Testing & validation",
-    title: "High-Speed Solver Engine",
-    description: `A faster solving engine is in testing and validation (expected in the coming months). Included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released. From 2 December 2026 the licence price will be adjusted for new buyers.`,
+    title: "Further solver speed upgrades",
+    description: `Further solver speed upgrades are under testing and validation (expected in the coming months). Included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released. From 2 December 2026 the licence price will be adjusted for new buyers.`,
   },
   {
     status: `Coming soon · not in the ${LICENSE_PRICE} licence`,
@@ -161,8 +161,8 @@ export const ROADMAP_ITEMS = [
 
 export const COMING_SOON_ITEMS = [
   {
-    title: "High-Speed Solver Engine",
-    note: `Included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} upon release`,
+    title: "Further solver speed upgrades",
+    note: `Under testing and validation — included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released`,
   },
   {
     title: "GTO Adjustments panel",
@@ -197,8 +197,8 @@ export const COMING_SOON_ITEMS = [
 export const NEWS_ITEMS = [
   {
     category: "Development Update",
-    title: "High-Speed Solver Engine",
-    body: `A redesigned solving engine is in testing and validation. It is included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released. From 2 December 2026 the licence price will be adjusted for new buyers.`,
+    title: "Further solver speed upgrades",
+    body: `Further solver speed upgrades are under testing and validation. They are included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL} when released. From 2 December 2026 the licence price will be adjusted for new buyers.`,
   },
   {
     category: "Development Update",
@@ -216,10 +216,10 @@ export const PRICING_INCLUDES = [
   "Full current P27 Solver (Windows desktop)",
   "Unlimited usage of features that ship today",
   "Two activations (desktop + laptop); deactivate to move",
-  `High-Speed Solver Engine upon release (included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL})`,
+  `Further solver speed upgrades upon release (included for ${LICENSE_PRICE} buyers on or before ${PRICE_UNTIL})`,
 ] as const;
 
-export const PRICING_NOTE = `${PRICE_INTRO_LINE} Anyone who buys at ${LICENSE_PRICE} on or before ${PRICE_UNTIL} keeps that lifetime licence, including the High-Speed Solver Engine when it ships. Tournament Solver Mode and Exploitative Best-Response Solver are not included. Updates apply to the current product and that High-Speed engine — not every future module.`;
+export const PRICING_NOTE = `${PRICE_INTRO_LINE} Anyone who buys at ${LICENSE_PRICE} on or before ${PRICE_UNTIL} keeps that lifetime license, including further solver speed upgrades when released. Tournament Solver Mode and Exploitative Best-Response Solver are not included. Updates apply to the current product and those speed upgrades — not every future module.`;
 
 export const SYSTEM_REQUIREMENTS = [
   {
@@ -309,7 +309,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: `Will the price change after ${PRICE_UNTIL}?`,
-    answer: `Yes. ${PRICE_INTRO_LINE} Purchases on or before ${PRICE_UNTIL} keep ${LICENSE_PRICE} lifetime, including the High-Speed Solver Engine when released. We are not announcing the post-${PRICE_UNTIL} price yet.`,
+    answer: `Yes. ${PRICE_INTRO_LINE} Purchases on or before ${PRICE_UNTIL} keep ${LICENSE_PRICE} lifetime, including further solver speed upgrades when released. We are not announcing the post-${PRICE_UNTIL} price yet.`,
   },
   {
     question: "What is the difference between Equity FN and Solve FN?",
