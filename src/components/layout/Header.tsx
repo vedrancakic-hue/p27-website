@@ -7,6 +7,15 @@ import { NAV_LINKS } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
+function scrollToHash(href: string) {
+  const id = href.includes("#") ? href.split("#")[1] : "";
+  if (!id) return false;
+  const el = document.getElementById(id);
+  if (!el) return false;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  return true;
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,6 +67,9 @@ export function Header() {
               key={link.href}
               href={link.href}
               className="text-sm text-muted transition hover:text-text"
+              onClick={(e) => {
+                if (scrollToHash(link.href)) e.preventDefault();
+              }}
             >
               {link.label}
             </Link>
@@ -65,7 +77,13 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/#pricing" variant="primary">
+          <Button
+            href="/#pricing"
+            variant="primary"
+            onClick={(e) => {
+              if (scrollToHash("/#pricing")) e.preventDefault();
+            }}
+          >
             Buy license
           </Button>
         </div>
@@ -101,7 +119,10 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className="rounded-lg px-3 py-3 text-base text-muted hover:bg-white/[0.03] hover:text-text"
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  setOpen(false);
+                  if (scrollToHash(link.href)) e.preventDefault();
+                }}
               >
                 {link.label}
               </Link>
@@ -110,7 +131,10 @@ export function Header() {
               <Button
                 href="/#pricing"
                 className="w-full"
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  setOpen(false);
+                  if (scrollToHash("/#pricing")) e.preventDefault();
+                }}
               >
                 Buy license
               </Button>
