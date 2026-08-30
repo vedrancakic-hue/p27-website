@@ -84,7 +84,7 @@ export function Header() {
               if (scrollToHash("/#pricing")) e.preventDefault();
             }}
           >
-            Buy license
+            See pricing
           </Button>
         </div>
 
@@ -136,7 +136,7 @@ export function Header() {
                   if (scrollToHash("/#pricing")) e.preventDefault();
                 }}
               >
-                Buy license
+                See pricing
               </Button>
             </div>
           </Container>
