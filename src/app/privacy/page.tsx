@@ -47,8 +47,8 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Purchases and licence-key fulfilment are handled by Lemon Squeezy
               as merchant of record. Lemon Squeezy processes payment data and
-              sends the licence key and download link by email. Their privacy
-              terms apply to checkout.
+              sends the licence key by email. Download the installer from this
+              website. Their privacy terms apply to checkout.
             </p>
           </section>
 

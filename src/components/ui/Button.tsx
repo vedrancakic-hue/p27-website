@@ -23,6 +23,10 @@ function isExternal(href: string) {
   return /^https?:\/\//i.test(href);
 }
 
+function isFileDownload(href: string) {
+  return /\.(exe|msi|zip|dmg|pkg)(\?.*)?$/i.test(href);
+}
+
 export function Button({
   variant = "primary",
   href,
@@ -46,6 +50,19 @@ export function Button({
           className={classes}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={onClick as ComponentProps<"a">["onClick"]}
+        >
+          {children}
+        </a>
+      );
+    }
+
+    if (isFileDownload(href)) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          download
           onClick={onClick as ComponentProps<"a">["onClick"]}
         >
           {children}

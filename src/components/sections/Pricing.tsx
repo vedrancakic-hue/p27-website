@@ -51,9 +51,9 @@ export function Pricing() {
               {PRICING_NOTE}
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              After purchase, the license key and download link arrive by
-              email. Enter the key in the app (Settings → License, or the
-              first-run dialog).
+              After purchase, the licence key arrives by email. Download the
+              installer from this site, then enter the key in the app (Settings
+              → License, or the first-run dialog).
             </p>
             {!LEMON_SQUEEZY_CHECKOUT_CONFIGURED ? (
               <p className="mt-4 text-sm leading-relaxed text-muted">

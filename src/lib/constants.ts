@@ -8,7 +8,11 @@ export const LEMON_SQUEEZY_CHECKOUT_CONFIGURED = Boolean(
 );
 
 export const CHECKOUT_NOTE =
-  "Lemon Squeezy checkout is not live yet. Buy currently opens the store URL. When checkout is connected, your license key and download link arrive by email — enter the key in the app (Settings → License, or the first-run dialog).";
+  "Lemon Squeezy checkout is not live yet. Buy currently opens the store URL. When checkout is connected, your licence key arrives by email — download the installer from /download, then enter the key in the app (Settings → License, or the first-run dialog).";
+
+/** Signed Windows NSIS installer (Azure Artifact Signing — NRG REAL d.o.o.). */
+export const WINDOWS_INSTALLER_URL = "/releases/P27-Solver-Setup-x64.exe";
+export const WINDOWS_INSTALLER_VERSION = "1.0.0";
 
 export const PRODUCT_VIDEO_URL = "https://youtu.be/WX3ImW5iQrk";
 export const PRODUCT_VIDEO_EMBED_URL =
@@ -446,7 +450,7 @@ export const FAQ_ITEMS = [
   {
     question: "How do I buy and activate a licence?",
     answer:
-      "Licences are sold through Lemon Squeezy (merchant of record). After purchase, the licence key and download link arrive by email. Enter the key in the app under Settings → License, or in the first-run dialog. Two activations are included (desktop + laptop); deactivate a machine to move the licence.",
+      "Licences are sold through Lemon Squeezy (merchant of record). After purchase, the licence key arrives by email. Download the Windows installer from p27solver.com/download, install, then enter the key under Settings → License (or the first-run dialog). Two activations are included (desktop + laptop); deactivate a machine to move the licence.",
   },
   {
     question: "Does it run in the browser?",

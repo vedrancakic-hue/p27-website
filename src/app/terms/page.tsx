@@ -65,9 +65,9 @@ export default function TermsPage() {
               (64-bit) only.
             </p>
             <p className="mt-3">
-              After purchase, Lemon Squeezy emails the licence key and download
-              link. Enter the key in the app under Settings → License, or in
-              the first-run dialog.
+              After purchase, Lemon Squeezy emails the licence key. Download
+              the Windows installer from p27solver.com/download. Enter the key
+              in the app under Settings → License, or in the first-run dialog.
             </p>
           </section>
 

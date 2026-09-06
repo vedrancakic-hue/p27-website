@@ -4,6 +4,8 @@ import {
   LEMON_SQUEEZY_CHECKOUT_CONFIGURED,
   LEMON_SQUEEZY_CHECKOUT_URL,
   SYSTEM_REQUIREMENTS,
+  WINDOWS_INSTALLER_URL,
+  WINDOWS_INSTALLER_VERSION,
 } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -23,10 +25,10 @@ export default function DownloadPage() {
           Download P27 Solver
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-muted">
-          Native Windows 10 or later (64-bit) only. Licences are purchased
-          through Lemon Squeezy. After purchase, the key and download link
-          arrive by email — enter the key in Settings → License, or in the
-          first-run dialog.
+          Native Windows 10 or later (64-bit) only. Buy a licence through Lemon
+          Squeezy — the key arrives by email. Download the installer here,
+          install, then enter the key in Settings → License or the first-run
+          dialog.
         </p>
 
         <div className="mt-10 rounded-2xl border border-border bg-surface p-6 sm:p-8">
@@ -34,16 +36,25 @@ export default function DownloadPage() {
             <div>
               <p className="text-sm text-muted">Windows installer</p>
               <p className="mt-1 font-medium text-text">
-                Forthcoming — unsigned until code signing completes
+                P27 Solver {WINDOWS_INSTALLER_VERSION} (x64) — signed
               </p>
               <p className="mt-2 text-sm text-muted">
-                The public installer will be posted here when signing is
-                finished. There is no downloadable file on this page yet.
+                Digitally signed by {COMPANY.legalName}. About 5 MB. A valid
+                licence key is required to solve.
               </p>
             </div>
-            <Button href={LEMON_SQUEEZY_CHECKOUT_URL} className="sm:self-start">
-              Buy license
-            </Button>
+            <div className="flex flex-col gap-3 sm:items-stretch">
+              <Button href={WINDOWS_INSTALLER_URL} className="sm:self-start">
+                Download for Windows
+              </Button>
+              <Button
+                href={LEMON_SQUEEZY_CHECKOUT_URL}
+                variant="secondary"
+                className="sm:self-start"
+              >
+                Buy license
+              </Button>
+            </div>
           </div>
 
           <dl className="mt-8 grid gap-4 border-t border-border pt-6 sm:grid-cols-3">
